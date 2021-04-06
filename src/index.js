@@ -2,7 +2,6 @@ module.exports ={
   version: require('../package.json').version,
   number:number,
   oyun:oyun,
-  fetch:fetch,
   sayi:sayi,
   renk:renk,
   random:random
@@ -24,21 +23,25 @@ function number(length) {
 function oyun (gamename) {
   if (gamename === undefined) { throw new TypeError(`Lütfen bir oyun ismi giriniz. ["seviyor_sevmiyor", "yazı_tura", "zar","slots"]`)}
   if (gamename === "seviyor_sevmiyor") {
-   return ["Seviyor", "Sevmiyor"][getRandomInt(0, ["Seviyor", "Sevmiyor"].length)]
+    let val = ["Seviyor", "Sevmiyor"][getRandomInt(0, ["Seviyor", "Sevmiyor"].length)]
+    if(val === undefined) return val;
+   return val
 }
   if (gamename === "yazı_tura") {
-  return ["yazı", "tura"][getRandomInt(0, ["yazı", "tura"].length)]
-}
+    let val = ["yazı", "tura"][getRandomInt(0, ["yazı", "tura"].length)]
+    if(val === undefined) return val;
+  return val;
+  } 
 if (gamename === "zar") {
-   return ["1 [Bir]", "2 [İki]", "3 [Üç]", "4 [Dört]", "5 [Beş]", "6 [Altı]"][getRandomInt(0, ["1 [Bir]", "2 [İki]", "3 [Üç]", "4 [Dört]", "5 [Beş]", "6 [Altı]"].length)]
+  let val = ["1 [Bir]", "2 [İki]", "3 [Üç]", "4 [Dört]", "5 [Beş]", "6 [Altı]"][getRandomInt(0, ["1 [Bir]", "2 [İki]", "3 [Üç]", "4 [Dört]", "5 [Beş]", "6 [Altı]"].length)]
+  if(val === undefined) return val;
+  return val;
 }
 if (gamename === "slots") {
-  return ["🍋", "🍍", "🥑", "🥥"][getRandomInt(0, ["🍋", "🍍", "🥑", "🥥"].length)]
+  let val = ["🍋", "🍍", "🥑", "🥥"][getRandomInt(0, ["🍋", "🍍", "🥑", "🥥"].length)]
+  if(val === undefined) return val;
+  return val
 }
-}
-function fetch(link){
-  if (link === undefined) return new TypeError("Lütfen Link Giriniz!");  
-require("node-fetch")(link)
 }
 function sayi (sayı1, sayı2, sayı3) {
   if (sayı3 === undefined) {
@@ -91,5 +94,7 @@ return randomItems2
 }
 }
 function random(values){
-  return values[getRandomInt(0, values.length)]
+  let val = values[getRandomInt(0, values.length)]
+  if(val === undefined) return val;
+  return val
 }

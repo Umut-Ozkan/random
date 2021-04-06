@@ -1,17 +1,14 @@
 {  
   "name": "astroide",  
-  "version": "0.2.0",  
+  "version": "0.2.3",  
   "main": "main.js",  
   "license": "MIT",
   "author": "astroide",
   "homepage": "https://github.com/Umut-Ozkan/astroide",
-  "dependencies": {
-    "node-fetch": "2.6.1"
-  },
   "bugs": {
     "url": "https://github.com/Umut-Ozkan/astroide/issues"
   },
   "repository": {
-    "url": "https://github.com/Umut-Ozkan/astroide/random.git"
+    "url": "https://github.com/Umut-Ozkan/astroide"
   }
 }
