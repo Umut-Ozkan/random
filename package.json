@@ -1,16 +1,16 @@
 {
   "name": "astroide",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Module Kit",
   "main": "main.js",
   "license": "MIT",
   "author": "astroide",
-  "homepage": "https://github.com/Umut-Ozkan/astroide",
+  "homepage": "https://github.com/uastroide/astroide",
   "bugs": {
-    "url": "https://github.com/Umut-Ozkan/astroide/issues"
+    "url": "https://github.com/uastroide/astroide/issues"
   },
   "repository": {
-    "url": "https://github.com/Umut-Ozkan/astroide.git"
+    "url": "git://github.com/uastroide/astroide.git"
   },
   "scripts": {
     "test": "node test.js"
