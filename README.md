@@ -16,7 +16,7 @@ astroide.number(3) // [5,2,8]
 astroide.oyun("seviyor_sevmiyor") // Seviyor
 astroide.oyun("yazı_tura") // Tura
 astroide.oyun("zar") // 6 [Altı]
-astroide.slots()
+astroide.oyun("slots") // Slot Çeker
 
 //Seçtiğin kadar yada seçtiğin sayıya kadar sayı üretir.
 astroide.sayi(3) // [ 12 , 72, 36]
@@ -27,6 +27,6 @@ astroide.sayi(5, 10, 20) // [ 17, 13, 11, 12, 16 ]
 // 5 tane 10 ile 20 arasında rastgele sayı üretir.
 
 //Renk kodu üretir.
-rastgele.renk() //#74317E
-rastgele.renk("2") //[ '#4E7336', '#F4B236' ]
+astroide.renk() //#74317E
+astroide.renk("2") //[ '#4E7336', '#F4B236' ]
 ```
