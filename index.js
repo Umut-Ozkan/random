@@ -2,7 +2,7 @@ const { set, get, has, unset } = require("lodash");
 const { writeFileSync, readFileSync, existsSync } = require("fs");
 
 class Database {
-  constructor(adapter) {
+  constructor() {
     if (!existsSync(`./database.json`)) writeFileSync(`./database.json`, "{}");
   }
 
@@ -11,46 +11,6 @@ class Database {
     set(data, name, value);
     set1(JSON.stringify(data));
     return get(data, name);
-  }
-
-  push(name, value) {
-    let savedData = this.get(name);
-    if (typeof savedData === "undefined") savedData = [];
-    if (!Array.isArray(savedData))
-      throw new Error("Data to push should be an array");
-    savedData.push(value);
-    this.set(name, savedData);
-    return savedData;
-  }
-
-  pop(name) {
-    let savedData = this.get(name);
-    if (typeof savedData === "undefined") savedData = [];
-    if (!Array.isArray(savedData))
-      throw new Error("Data to pop should be an array");
-    const value = savedData.pop();
-    this.set(name, savedData);
-    return value;
-  }
-
-  shift(name) {
-    let savedData = this.get(name);
-    if (typeof savedData === "undefined") savedData = [];
-    if (!Array.isArray(savedData))
-      throw new Error("Data to shift should be an array");
-    const value = savedData.shift();
-    this.set(name, savedData);
-    return value;
-  }
-
-  unshift(name, value) {
-    let savedData = this.get(name);
-    if (typeof savedData === "undefined") savedData = [];
-    if (!Array.isArray(savedData))
-      throw new Error("Data to unshift should be an array");
-    savedData.unshift(value);
-    this.set(name, savedData);
-    return savedData;
   }
 
   add(name, value) {
@@ -80,9 +40,6 @@ class Database {
   fetchAll() {
     return getDefaultData();
   }
-  map() {
-    return getDefaultData();
-  }
   all() {
     return getDefaultData();
   }
@@ -110,4 +67,4 @@ function getDefaultData() {
   const data = JSON.parse(file);
   return data;
 }
-module.exports = Database;
+module.exports = new Database;
