@@ -1,6 +1,9 @@
 {
-  "engines": {
-    "node": "12.x"
+  "name":"@astroidejs/astroide",
+  "version": "",
+  "description": "Easy, simple, fast, quick Database Manager",
+  "repository": {
+    "url":"git://github.com/astroidejs/astroide.git"
   },
   "scripts": {
     "prebuild": "rimraf dist",
