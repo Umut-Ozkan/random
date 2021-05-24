@@ -1,4 +1,5 @@
-- uses: mikeal/merge-release@master
-  env:
+uses: mikeal/merge-release@master
+env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      
