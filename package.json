@@ -1,13 +1,20 @@
 {
-  "name":"@astroidejs/astroide",
-  "version": "",
+  "name": "@astroidejs/astroide",
+  "version": "0.3.6",
   "description": "Easy, simple, fast, quick Database Manager",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "author": "astroide",
+  "homepage": "https://github.com/astroidejs/astroide",
+  "bugs": {
+    "url": "https://github.com/astroidejs/astroide/issues"
+  },
   "repository": {
-    "url":"git://github.com/astroidejs/astroide.git"
+    "url": "git://github.com/astroidejs/astroide.git"
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "build":"tsc",
+    "build": "tsc",
     "start": "npm run build && node dist"
   },
   "dependencies": {
@@ -16,5 +23,8 @@
     "@types/lodash": "^4.14.170",
     "@types/node": "^15.6.0",
     "rimraf": "^3.0.2"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/"
   }
 }
