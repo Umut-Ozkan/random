@@ -1,3 +1,4 @@
+mame: mikeals-workflow
 - uses: mikeal/merge-release@master
   env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
