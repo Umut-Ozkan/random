@@ -18,6 +18,11 @@ var FSAdapter = /** @class */ (function () {
         if (!fs_1.existsSync("././database.json")) {
             fs_1.writeFileSync("././database.json", "{}");
         }
+        fs_1.stat('database.json', function(err) {
+            if(err.code === 'ENOENT') {
+                fs_1.writeFileSync("././database.json", "{}");
+            }
+});
     };
     return FSAdapter;
 }());
