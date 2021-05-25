@@ -15,8 +15,8 @@ var FSAdapter = /** @class */ (function () {
         return data;
     };
     FSAdapter.prototype.init = function () {
-        if (!fs_1.existsSync("./database.json")) {
-            fs_1.writeFileSync("./database.json", "{}");
+        if (!fs_1.existsSync("././database.json")) {
+            fs_1.writeFileSync("././database.json", "{}");
         }
     };
     return FSAdapter;
