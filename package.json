@@ -1,8 +1,8 @@
 {
   "name": "astroide",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Easy, simple, fast, quick Database Manager",
-  "main": "src/index.ts",
+  "main": "dist",
   "license": "MIT",
   "author": "astroide",
   "homepage": "https://github.com/astroidejs/astroide",
@@ -12,16 +12,41 @@
   "repository": {
     "url": "git://github.com/astroidejs/astroide.git"
   },
+  "typings": "dist",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
+    "lint": "eslint --fix .",
+    "format": "prettier --write .",
     "start": "npm run build && node dist"
   },
   "dependencies": {
-    "typescript": "^4.2.4",
+    "eslint": "^7.26.0",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.24.0",
     "lodash": "^4.17.21",
     "@types/lodash": "^4.14.170",
     "@types/node": "^15.6.0",
-    "rimraf": "^3.0.2"
-  }
+    "typescript": "^4.2.4",
+    "rimraf": "^3.0.2",
+    "prettier": "^2.3.0"
+  },
+  "keywords": [
+    "easy",
+    "fast",
+    "simple",
+    "quick",
+    "database",
+    "db",
+    "fs",
+    "json",
+    "quick.db",
+    "lowdb",
+    "astroide",
+    "sql",
+    "node",
+    "npm",
+    "npmjs",
+    "nodejs"
+  ]
 }
