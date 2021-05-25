@@ -1,6 +1,6 @@
 {
-  "name": "@astroidejs/astroide",
-  "version": "0.3.7",
+  "name": "astroide",
+  "version": "0.3.8",
   "description": "Easy, simple, fast, quick Database Manager",
   "main": "src/index.ts",
   "license": "MIT",
