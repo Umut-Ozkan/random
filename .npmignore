@@ -1,5 +1,10 @@
 node_modules
 src
-database.json
+.eslintrc
 .gitignore
 .npmignore
+.prettierrc
+yarn.lock
+database.json
+package-lock.json
+shrinkwrap.yaml
