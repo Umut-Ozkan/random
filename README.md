@@ -1,4 +1,13 @@
+## Install Package
+
+```js
+npm i --save astroide
+```
+
 ## Usage
+```js
+const db = require("astroide")
+```
 
 [Setting A Value](https://lodash.com/docs/4.17.15#set)
 ```js
