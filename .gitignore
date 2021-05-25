@@ -1,5 +1,4 @@
 node_modules
-dist
 database.json
 package-lock.json
 shrinkwrap.yaml
