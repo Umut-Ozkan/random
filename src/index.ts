@@ -1,4 +1,4 @@
-import { writeFileSync, readFileSync, existsSync } from "fs";
+import { writeFileSync, readFileSync, access,constants } from "fs";
 import { set, get, has, unset } from "lodash";
 class FSAdapter {
   public set(value: string): { [prop: string]: unknown } {
@@ -13,9 +13,11 @@ class FSAdapter {
     return data;
   }
   public init(): void {
-    if (!existsSync(`./database.json`,)) {
-      writeFileSync(`./database.json`,"{}",);
-    }
+    access("database.json", constants.F_OK, (err) => {
+      if(err) {
+        writeFileSync("././database.json", "{}");
+      }
+  });
   }
 }
 class Database {

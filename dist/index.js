@@ -15,14 +15,11 @@ var FSAdapter = /** @class */ (function () {
         return data;
     };
     FSAdapter.prototype.init = function () {
-        if (!fs_1.existsSync("././database.json")) {
-            fs_1.writeFileSync("././database.json", "{}");
-        }
-        fs_1.stat('database.json', function(err) {
-            if(err.code === 'ENOENT') {
+        fs_1.access("database.json", fs_1.constants.F_OK, function (err) {
+            if (err) {
                 fs_1.writeFileSync("././database.json", "{}");
             }
-});
+        });
     };
     return FSAdapter;
 }());
