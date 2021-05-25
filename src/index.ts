@@ -12,16 +12,19 @@ class FSAdapter {
     const data = JSON.parse(file);
     return data;
   }
+  public init(): void {
+    if (!existsSync(`./database.json`,)) {
+      writeFileSync(`./database.json`,"{}",);
+    }
+  }
 }
 class Database {
   private adapter: FSAdapter;
-  private json: {[prop: string]: unknown } = {};
+  private json: { [prop: string]: unknown } = {};
 
   constructor(adapter: FSAdapter = new FSAdapter()) {
     this.adapter = adapter;
-    if (existsSync(`./database.json`) === false) {
-      writeFileSync(`./database.json`, "{}");
-    }
+    this.adapter.init();
   }
 
   private getDefaultData() {

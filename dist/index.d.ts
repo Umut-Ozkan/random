@@ -5,6 +5,7 @@ declare class FSAdapter {
     get(): {
         [prop: string]: unknown;
     };
+    init(): void;
 }
 declare class Database {
     private adapter;

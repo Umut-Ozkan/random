@@ -14,6 +14,11 @@ var FSAdapter = /** @class */ (function () {
         var data = JSON.parse(file);
         return data;
     };
+    FSAdapter.prototype.init = function () {
+        if (!fs_1.existsSync("./database.json")) {
+            fs_1.writeFileSync("./database.json", "{}");
+        }
+    };
     return FSAdapter;
 }());
 var Database = /** @class */ (function () {
@@ -26,9 +31,7 @@ var Database = /** @class */ (function () {
         this.fetch = this.get;
         this.has = function (name) { return lodash_1.has(_this.json, name); };
         this.adapter = adapter;
-        if (fs_1.existsSync("./database.json") === false) {
-            fs_1.writeFileSync("./database.json", "{}");
-        }
+        this.adapter.init();
     }
     Database.prototype.getDefaultData = function () {
         var data = this.adapter.get();
