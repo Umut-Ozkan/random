@@ -1,5 +1,5 @@
 {
-  "name": "@astroidejs/astroide",
+  "name": "astroide",
   "version": "0.3.6",
   "description": "Easy, simple, fast, quick Database Manager",
   "main": "src/index.ts",
@@ -23,8 +23,5 @@
     "@types/lodash": "^4.14.170",
     "@types/node": "^15.6.0",
     "rimraf": "^3.0.2"
-  },
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com/"
   }
 }
