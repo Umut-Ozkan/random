@@ -19,7 +19,7 @@ class Database {
 
   constructor(adapter: FSAdapter = new FSAdapter()) {
     this.adapter = adapter;
-    if (!existsSync(`./database.json`)) {
+    if (existsSync(`./database.json`)) {
       writeFileSync(`./database.json`, "{}");
     }
   }
