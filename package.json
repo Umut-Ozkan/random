@@ -1,52 +1,46 @@
 {
-  "name": "astroide",
-  "version": "0.4.8",
-  "description": "Easy, simple, fast, quick Database Manager",
-  "main": "dist",
-  "license": "MIT",
-  "author": "astroide",
-  "homepage": "https://github.com/astroidejs/astroide",
-  "bugs": {
-    "url": "https://github.com/astroidejs/astroide/issues"
-  },
-  "repository": {
-    "url": "git://github.com/astroidejs/astroide.git"
-  },
-  "typings": "dist",
-  "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "tsc",
-    "lint": "eslint --fix .",
-    "format": "prettier --write .",
-    "start": "npm run build && node dist"
-  },
-  "dependencies": {
-    "@types/lodash": "^4.14.170",
-    "@types/node": "^15.3.0",
-    "@typescript-eslint/eslint-plugin": "^4.24.0",
-    "@typescript-eslint/parser": "^4.24.0",
-    "lodash": "^4.17.21",
-    "eslint": "^7.26.0",
-    "prettier": "^2.3.0",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.2.4"
-  },
-  "keywords": [
-    "easy",
-    "fast",
-    "simple",
-    "quick",
-    "database",
-    "db",
-    "fs",
-    "json",
-    "quick.db",
-    "lowdb",
-    "astroide",
-    "sql",
-    "node",
-    "npm",
-    "npmjs",
-    "nodejs"
-  ]
+	"name": "astroide",
+	"version": "0.4.9",
+	"description": "Easy, simple, fast, quick Database Manager",
+	"main": "dist",
+	"license": "MIT",
+	"author": "astroide",
+	"homepage": "https://github.com/astroidejs/astroide",
+	"bugs": {
+		"url": "https://github.com/astroidejs/astroide/issues"
+	},
+	"repository": {
+		"url": "git://github.com/astroidejs/astroide.git"
+	},
+	"typings": "dist",
+	"scripts": {
+		"prebuild": "rimraf dist",
+		"build": "tsc",
+		"start": "npm run build && node dist"
+	},
+	"dependencies": {
+		"@types/lodash": "^4.14.170",
+		"@types/node": "^15.3.0",
+		"lodash": "^4.17.21",
+		"rimraf": "^3.0.2",
+		"typescript": "^4.2.4"
+	},
+	"keywords": [
+		"easy",
+		"fast",
+		"simple",
+		"quick",
+		"database",
+		"db",
+		"fs",
+		"json",
+		"quick.db",
+		"lowdb",
+		"astroide",
+		"sql",
+		"node",
+		"npm",
+		"npmjs",
+		"nodejs"
+	]
 }
