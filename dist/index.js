@@ -26,9 +26,9 @@ var Database = /** @class */ (function () {
         this.fetch = this.get;
         this.has = function (name) { return lodash_1.has(_this.json, name); };
         this.adapter = adapter;
-        if (!fs_1.existsSync("data.json")) {
+       /* if (!fs_1.existsSync("data.json")) {
             fs_1.writeFileSync("data.json", "{}");
-        }
+        } */
     }
     Database.prototype.getDefaultData = function () {
         var data = this.adapter.get();
