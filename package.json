@@ -1,6 +1,6 @@
 {
 	"name": "astroide",
-	"version": "0.5.2",
+	"version": "0.5.4",
 	"description": "Easy, simple, fast, quick Database Manager",
 	"main": "dist",
 	"license": "MIT",

@@ -5,12 +5,12 @@ var FSAdapter = /** @class */ (function () {
     function FSAdapter() {
     }
     FSAdapter.prototype.set = function (value) {
-        fs_1.writeFileSync("./database.json", value);
+        fs_1.writeFileSync("data.json", value);
         var data = JSON.parse(value);
         return data;
     };
     FSAdapter.prototype.get = function () {
-        var file = fs_1.readFileSync("./database.json", "utf-8");
+        var file = fs_1.readFileSync("data.json", "utf-8");
         var data = JSON.parse(file);
         return data;
     };
@@ -26,8 +26,9 @@ var Database = /** @class */ (function () {
         this.fetch = this.get;
         this.has = function (name) { return lodash_1.has(_this.json, name); };
         this.adapter = adapter;
-        if (!fs_1.existsSync("database.json"))
-            throw new SyntaxError("Create file database.json because its data is save here!");
+        if (!fs_1.existsSync("data.json")) {
+            fs_1.writeFileSync("data.json", "{}");
+        }
     }
     Database.prototype.getDefaultData = function () {
         var data = this.adapter.get();
