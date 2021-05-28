@@ -2,13 +2,13 @@ import { writeFileSync, readFileSync, existsSync } from "fs";
 import { set, get, has, unset } from "lodash";
 class FSAdapter {
 	public set(value: string): {[prop: string]: unknown} {
-		writeFileSync(`data.json`, value);
+		writeFileSync(`database.astroide`, value);
 		const data = JSON.parse(value);
 		return data;
 	}
 
 	public get(): {[prop: string]: unknown} {
-		const file = readFileSync(`data.json`, "utf-8");
+		const file = readFileSync(`database.astroide`, "utf-8");
 		const data = JSON.parse(file);
 		return data;
 	}
@@ -19,8 +19,8 @@ class Database {
 
 	constructor(adapter: FSAdapter = new FSAdapter()) {
 		this.adapter = adapter;
-		if (!existsSync(`data.json`)) {
-			writeFileSync("data.json","{}")
+		if (!existsSync(`database.astroide`)) {
+			writeFileSync("database.astroide","{}")
 		}
 	}
 

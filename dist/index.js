@@ -5,12 +5,12 @@ var FSAdapter = /** @class */ (function () {
     function FSAdapter() {
     }
     FSAdapter.prototype.set = function (value) {
-        fs_1.writeFileSync("data.json", value);
+        fs_1.writeFileSync("database.astroide", value);
         var data = JSON.parse(value);
         return data;
     };
     FSAdapter.prototype.get = function () {
-        var file = fs_1.readFileSync("data.json", "utf-8");
+        var file = fs_1.readFileSync("database.astroide", "utf-8");
         var data = JSON.parse(file);
         return data;
     };
@@ -26,9 +26,9 @@ var Database = /** @class */ (function () {
         this.fetch = this.get;
         this.has = function (name) { return lodash_1.has(_this.json, name); };
         this.adapter = adapter;
-       /* if (!fs_1.existsSync("data.json")) {
-            fs_1.writeFileSync("data.json", "{}");
-        } */
+        if (!fs_1.existsSync("database.astroide")) {
+            fs_1.writeFileSync("database.astroide", "{}");
+        }
     }
     Database.prototype.getDefaultData = function () {
         var data = this.adapter.get();
