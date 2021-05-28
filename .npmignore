@@ -5,3 +5,4 @@ src
 database.json
 package-lock.json
 shrinkwrap.yaml
+.npmrc

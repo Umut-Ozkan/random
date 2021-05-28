@@ -1,6 +1,6 @@
 {
 	"name": "astroide",
-	"version": "0.4.9",
+	"version": "0.5.2",
 	"description": "Easy, simple, fast, quick Database Manager",
 	"main": "dist",
 	"license": "MIT",
@@ -14,9 +14,7 @@
 	},
 	"typings": "dist",
 	"scripts": {
-		"prebuild": "rimraf dist",
-		"build": "tsc",
-		"start": "npm run build && node dist"
+		"start": "rimraf dist && tsc && node dist"
 	},
 	"dependencies": {
 		"@types/lodash": "^4.14.170",

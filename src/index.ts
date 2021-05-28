@@ -1,31 +1,25 @@
 import { writeFileSync, readFileSync, existsSync } from "fs";
 import { set, get, has, unset } from "lodash";
-import { LooseObject } from "./types";
 class FSAdapter {
-	public set(value: string): LooseObject {
+	public set(value: string): {[prop: string]: unknown} {
 		writeFileSync(`./database.json`, value);
 		const data = JSON.parse(value);
 		return data;
 	}
 
-	public get(): LooseObject {
+	public get(): {[prop: string]: unknown} {
 		const file = readFileSync(`./database.json`, "utf-8");
 		const data = JSON.parse(file);
 		return data;
 	}
-	public init(): void {
-		if (!existsSync(`${process.cwd()}/database.json`)) {
-			writeFileSync(`./database.json`, "{}");
-		}
-	}
 }
 class Database {
 	private adapter: FSAdapter;
-	private json: LooseObject = {};
+	private json: {[prop: string]: unknown} = {};
 
 	constructor(adapter: FSAdapter = new FSAdapter()) {
 		this.adapter = adapter;
-		this.adapter.init();
+		if (!existsSync(`database.json`)) throw new SyntaxError("Create file database.json because its data is save here!")	
 	}
 
 	private getDefaultData() {

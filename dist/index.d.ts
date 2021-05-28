@@ -1,8 +1,10 @@
-import { LooseObject } from "./types";
 declare class FSAdapter {
-    set(value: string): LooseObject;
-    get(): LooseObject;
-    init(): void;
+    set(value: string): {
+        [prop: string]: unknown;
+    };
+    get(): {
+        [prop: string]: unknown;
+    };
 }
 declare class Database {
     private adapter;
@@ -16,8 +18,12 @@ declare class Database {
     unshift(name: string, value: unknown): any[];
     add(name: string, value: number): number;
     subtract(name: string, value: number): number;
-    delete(name: string): LooseObject;
-    all: () => LooseObject;
+    delete(name: string): {
+        [prop: string]: unknown;
+    };
+    all: () => {
+        [prop: string]: unknown;
+    };
     get: (name: string) => unknown;
     fetch: (name: string) => unknown;
     has: (name: string) => boolean;
