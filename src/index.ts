@@ -20,22 +20,19 @@ class FSAdapter {
 }
 class Database {
 	private adapter: FSAdapter;
-	private json: { [prop: string]: unknown } = {};
 
 	constructor(adapter: FSAdapter = new FSAdapter()) {
 		this.adapter = adapter;
 		this.adapter.init();
 	}
-
-	private getDefaultData() {
+	public all() {
 		const data = this.adapter.get();
 		return data;
 	}
 
 	public set(name: string, value: unknown) {
-		const data = this.getDefaultData();
+		const data = this.all();
 		set(data, name, value);
-		this.json = data;
 		this.adapter.set(JSON.stringify(data));
 		return get(data, name);
 	}
@@ -101,14 +98,19 @@ class Database {
 	}
 
 	public async delete(name: string) {
-		unset(this.json, name);
-		await this.adapter.set(JSON.stringify(this.json));
-		return this.json;
+		if (!this.get("a")) return false;
+		unset(this.all, name);
+		await this.adapter.set(JSON.stringify(this.all));
+		return true;
 	}
 
-	public all = () => this.json;
-	public get = (name: string) => get(this.json, name);
+	public get(name: string) {
+		let gets = get(this.all, name)
+		if(gets === undefined) return false;
+		if(!gets) return false;
+		return gets
+	}
 	public fetch = this.get;
-	public has = (name: string) => has(this.json, name);
+	public has = (name: string) => has(this.all, name);
 }
 export = new Database();

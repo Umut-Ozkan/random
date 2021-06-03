@@ -61,22 +61,18 @@ var Database = /** @class */ (function () {
     function Database(adapter) {
         var _this = this;
         if (adapter === void 0) { adapter = new FSAdapter(); }
-        this.json = {};
-        this.all = function () { return _this.json; };
-        this.get = function (name) { return lodash_1.get(_this.json, name); };
         this.fetch = this.get;
-        this.has = function (name) { return lodash_1.has(_this.json, name); };
+        this.has = function (name) { return lodash_1.has(_this.all, name); };
         this.adapter = adapter;
         this.adapter.init();
     }
-    Database.prototype.getDefaultData = function () {
+    Database.prototype.all = function () {
         var data = this.adapter.get();
         return data;
     };
     Database.prototype.set = function (name, value) {
-        var data = this.getDefaultData();
+        var data = this.all();
         lodash_1.set(data, name, value);
-        this.json = data;
         this.adapter.set(JSON.stringify(data));
         return lodash_1.get(data, name);
     };
@@ -145,14 +141,24 @@ var Database = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        lodash_1.unset(this.json, name);
-                        return [4 /*yield*/, this.adapter.set(JSON.stringify(this.json))];
+                        if (!this.get("a"))
+                            return [2 /*return*/, false];
+                        lodash_1.unset(this.all, name);
+                        return [4 /*yield*/, this.adapter.set(JSON.stringify(this.all))];
                     case 1:
                         _a.sent();
-                        return [2 /*return*/, this.json];
+                        return [2 /*return*/, true];
                 }
             });
         });
+    };
+    Database.prototype.get = function (name) {
+        var gets = lodash_1.get(this.all, name);
+        if (gets === undefined)
+            return false;
+        if (!gets)
+            return false;
+        return gets;
     };
     return Database;
 }());

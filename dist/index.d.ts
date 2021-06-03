@@ -9,9 +9,10 @@ declare class FSAdapter {
 }
 declare class Database {
     private adapter;
-    private json;
     constructor(adapter?: FSAdapter);
-    private getDefaultData;
+    all(): {
+        [prop: string]: unknown;
+    };
     set(name: string, value: unknown): unknown;
     push(name: string, value: unknown): any[];
     pop(name: string): any;
@@ -19,14 +20,9 @@ declare class Database {
     unshift(name: string, value: unknown): any[];
     add(name: string, value: number): number;
     subtract(name: string, value: number): number;
-    delete(name: string): Promise<{
-        [prop: string]: unknown;
-    }>;
-    all: () => {
-        [prop: string]: unknown;
-    };
-    get: (name: string) => unknown;
-    fetch: (name: string) => unknown;
+    delete(name: string): Promise<boolean>;
+    get(name: string): any;
+    fetch: (name: string) => any;
     has: (name: string) => boolean;
 }
 declare const _default: Database;

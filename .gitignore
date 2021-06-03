@@ -1,5 +1,5 @@
-dist
 node_modules
 database.astroide
 package-lock.json
 shrinkwrap.yaml
+dist
