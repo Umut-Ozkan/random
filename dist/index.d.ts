@@ -5,6 +5,7 @@ declare class FSAdapter {
     get(): {
         [prop: string]: unknown;
     };
+    init(): void;
 }
 declare class Database {
     private adapter;
@@ -18,9 +19,9 @@ declare class Database {
     unshift(name: string, value: unknown): any[];
     add(name: string, value: number): number;
     subtract(name: string, value: number): number;
-    delete(name: string): {
+    delete(name: string): Promise<{
         [prop: string]: unknown;
-    };
+    }>;
     all: () => {
         [prop: string]: unknown;
     };

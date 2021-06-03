@@ -74,8 +74,8 @@ db.shift("my.cool.database.array"); // => [null, 3, "str1"]
 db.unshift("my.cool.database.array", 5); // => [5, null, 3, "str1"]
 ```
 
-[Deleting a value in the database](https://lodash.com/docs/4.17.15#unset)
+[Deleting a value in the database(requires async/await)](https://lodash.com/docs/4.17.15#unset)
 
 ```js
-db.delete("my.bad.database"); // => true
+await db.delete("my.bad.database"); // => true
 ```
