@@ -1,6 +1,6 @@
 name: Node.js Package
 on:
-  package:
+  release:
     types: [created]
 jobs:
   build:
