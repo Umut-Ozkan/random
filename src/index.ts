@@ -6,27 +6,19 @@ class FSAdapter {
 		const data = JSON.parse(value);
 		return data;
 	}
-
-	public get(): { [prop: string]: unknown } {
-		const file = readFileSync(`./database.astroide`, "utf-8");
-		const data = JSON.parse(file);
-		return data;
-	}
-	public init(): void {
-		if (!existsSync(`database.astroide`)) {
-			writeFileSync("database.astroide", "{}")
-		}
-	}
 }
 class Database {
 	private adapter: FSAdapter;
 
 	constructor(adapter: FSAdapter = new FSAdapter()) {
 		this.adapter = adapter;
-		this.adapter.init();
+		if (!existsSync(`database.astroide`)) {
+			writeFileSync("database.astroide", "{}")
+		}
 	}
 	public all() {
-		const data = this.adapter.get();
+		const file = readFileSync(`./database.astroide`, "utf-8");
+		const data = JSON.parse(file);
 		return data;
 	}
 
@@ -97,10 +89,10 @@ class Database {
 		return savedData;
 	}
 
-	public async delete(name: string) {
-		if (!this.get("a")) return false;
+	public delete(name: string) {
+		if (!this.get(name)) return false;
 		unset(this.all, name);
-		await this.adapter.set(JSON.stringify(this.all));
+		this.adapter.set(JSON.stringify(this.all));
 		return true;
 	}
 

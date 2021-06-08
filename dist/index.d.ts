@@ -20,7 +20,7 @@ declare class Database {
     unshift(name: string, value: unknown): any[];
     add(name: string, value: number): number;
     subtract(name: string, value: number): number;
-    delete(name: string): Promise<boolean>;
+    delete(name: string): boolean;
     get(name: string): any;
     fetch: (name: string) => any;
     has: (name: string) => boolean;

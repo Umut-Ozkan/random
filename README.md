@@ -1,3 +1,5 @@
+![Build Status](https://travis-ci.com/Umut-Ozkan/astroide.svg?branch=master)
+<a href="https://www.npmjs.com/package/astroide"><img src="https://img.shields.io/npm/v/astroide.svg?maxAge=3600" /></a>
 ## Install Package
 
 ```js
@@ -77,5 +79,5 @@ db.unshift("my.cool.database.array", 5); // => [5, null, 3, "str1"]
 [Deleting a value in the database(requires async/await)](https://lodash.com/docs/4.17.15#unset)
 
 ```js
-await db.delete("my.bad.database"); // => true
+db.delete("my.bad.database"); // => true
 ```
