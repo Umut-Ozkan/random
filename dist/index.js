@@ -9,16 +9,6 @@ var FSAdapter = /** @class */ (function () {
         var data = JSON.parse(value);
         return data;
     };
-    FSAdapter.prototype.get = function () {
-        var file = fs_1.readFileSync("./database.astroide", "utf-8");
-        var data = JSON.parse(file);
-        return data;
-    };
-    FSAdapter.prototype.init = function () {
-        if (!fs_1.existsSync("database.astroide")) {
-            fs_1.writeFileSync("database.astroide", "{}");
-        }
-    };
     return FSAdapter;
 }());
 var Database = /** @class */ (function () {
@@ -28,10 +18,13 @@ var Database = /** @class */ (function () {
         this.fetch = this.get;
         this.has = function (name) { return lodash_1.has(_this.all, name); };
         this.adapter = adapter;
-        this.adapter.init();
+        if (!fs_1.existsSync("database.astroide")) {
+            fs_1.writeFileSync("database.astroide", "{}");
+        }
     }
     Database.prototype.all = function () {
-        var data = this.adapter.get();
+        var file = fs_1.readFileSync("./database.astroide", "utf-8");
+        var data = JSON.parse(file);
         return data;
     };
     Database.prototype.set = function (name, value) {

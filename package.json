@@ -1,6 +1,6 @@
 {
-	"name": "astroide",
-	"version": "0.6.0",
+	"name": "@astroidejs/astroide",
+	"version": "0.6.2",
 	"description": "Easy, simple, fast, quick Database Manager",
 	"main": "dist",
 	"license": "MIT",

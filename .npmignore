@@ -6,3 +6,5 @@ database.astroide
 package-lock.json
 shrinkwrap.yaml
 .npmrc
+.travis.yml
+.github
