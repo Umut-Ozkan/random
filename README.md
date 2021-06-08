@@ -1,5 +1,4 @@
-![Build Status](https://travis-ci.com/Umut-Ozkan/astroide.svg?branch=master)
-<a href="https://www.npmjs.com/package/astroide"><img src="https://img.shields.io/npm/v/astroide.svg?maxAge=3600" /></a>
+[![](https://travis-ci.com/Umut-Ozkan/astroide.svg?branch=master)](https://github.com/Umut-Ozkan/astroide)  [![](https://img.shields.io/npm/v/astroide.svg?maxAge=3600)](https://github.com/Umut-Ozkan/astroide) [![](https://img.shields.io/npm/dt/astroide.svg?maxAge=3600)](https://github.com/Umut-Ozkan/astroide) [![](https://img.shields.io/david/astroidejs/astroide.svg?maxAge=3600)](https://github.com/Umut-Ozkan/astroide) [![](https://nodei.co/npm/astroide.png?downloads=true&stars=true)](https://github.com/Umut-Ozkan/astroide)
 ## Install Package
 
 ```js
