@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 12
       - run: npm install
-      - run: npm config set registry=https://npm.pkg.github.com/
+      - run: npm config set registry=https://npm.pkg.github.com/@astroidejs
       - run: npm publish --scope=@astroidejs
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
