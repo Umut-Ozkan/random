@@ -11,7 +11,7 @@ jobs:
       - name: Install Node v14
         uses: actions/setup-node@v2
         with:
-          node-version: 8
+          node-version: 6
 
       - name: Install dependencies
         run: npm i
