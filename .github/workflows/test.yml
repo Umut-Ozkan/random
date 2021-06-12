@@ -1,0 +1,20 @@
+name: Testing
+on: workflow_dispatch
+jobs:
+  test:
+    name: Node.JS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install Node v14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 1
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Run Test
+        run: npm run test
