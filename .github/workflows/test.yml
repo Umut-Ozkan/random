@@ -1,5 +1,5 @@
 name: Testing in Node 12
-on: workflow_dispatch
+on: [push,pull_request]
 jobs:
   test:
     name: Node.JS
