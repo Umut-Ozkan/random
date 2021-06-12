@@ -39,6 +39,7 @@ jobs:
           git config --global user.name "Umut-Ozkan"
         
       - name: Publish packages
+        uses: actions/checkout@master
         with:
           publish: yarn release
           commit: "chore(release): version packages"
