@@ -1,5 +1,5 @@
 {
-	"name": "@astroide",
+	"name": "astroide",
 	"version": "0.6.3",
 	"description": "Easy, simple, fast, quick Database Manager",
 	"main": "dist",
