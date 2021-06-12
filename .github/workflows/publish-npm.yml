@@ -5,9 +5,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest 
-    permissions: 
-      contents: read
-      packages: write 
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -18,10 +15,3 @@ jobs:
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - uses: actions/setup-node@v1
-        with:
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@astroidejs'
-      - run: npm publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
