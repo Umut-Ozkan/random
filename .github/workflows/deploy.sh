@@ -13,11 +13,11 @@ else
 fi
 
 echo -e "\n# Checkout the repo in the target branch"
-TARGET_BRANCH="docs"
+TARGET_BRANCH="publish-github"
 git clone $REPO out -b $TARGET_BRANCH
 
 echo -e "\n# Move the generated JSON file to the newly-checked-out repo, to be committed and pushed"
-mv docs/docs.json out/$CURRENT_BRANCH.json
+mv publish-github/github.json out/$CURRENT_BRANCH.json
 
 echo -e "\n# Commit and push"
 cd out
@@ -25,5 +25,5 @@ git pull
 git add .
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-git commit -m "Docs build for ${SOURCE_TYPE} ${CURRENT_BRANCH}: ${GITHUB_SHA}" || true
+git commit -m "build for ${SOURCE_TYPE} ${CURRENT_BRANCH}: ${GITHUB_SHA}" || true
 git push origin $TARGET_BRANCH
