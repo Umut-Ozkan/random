@@ -18,6 +18,6 @@ jobs:
         run: npm i
 
       - name: Publish
-        run: npm publish
+        run: bash ./.github/workflows/deploy.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
