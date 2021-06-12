@@ -1,12 +1,13 @@
-name: Testing
+name: Testing in Node 12
 on: workflow_dispatch
 jobs:
   test:
     name: Node.JS
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout
+      - uses: actions/setup-node
         with:
-          node-version: 14
+          node-version: 12
       - run: npm i
       - run: npm run test
