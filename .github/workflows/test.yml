@@ -9,4 +9,4 @@ jobs:
               with:
                   node-version: 8
             - run: npm i
-            - run: npm run test
+            - run: node dist
