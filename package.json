@@ -15,9 +15,8 @@
 	"typings": "dist",
 	"scripts": {
 		"lint": "eslint --fix .",
-		"format": "prettier --write .",
 		"test": "node dist",
-		"start": "rimraf dist && tsc && node dist"
+		"build": "rimraf dist && tsc && node dist"
 	},
 	"dependencies": {
 		"@types/lodash": "^4.14.170",
@@ -27,8 +26,7 @@
 		"typescript": "^4.2.4",
 		"@typescript-eslint/eslint-plugin": "^4.27.0",
 		"@typescript-eslint/parser": "^4.27.0",
-		"eslint": "^7.28.0",
-		"prettier": "^2.3.1"
+		"eslint": "^7.28.0"
 	},
 	"keywords": [
 		"easy",
