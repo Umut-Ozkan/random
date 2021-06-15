@@ -4,7 +4,7 @@ import { set, get, has, unset } from "lodash";
 class Database {
 	constructor() {
 		if (!existsSync(`database.astroide`)) {
-			writeFileSync("database.astroide", "{}")
+			writeFileSync("database.astroide", "{}");
 		}
 	}
 	public all() {
@@ -88,10 +88,10 @@ class Database {
 	}
 
 	public get(name: string) {
-		let gets = get(this.all, name)
+		const gets = get(this.all, name);
 		if (gets === undefined) return false;
 		if (!gets) return false;
-		return gets
+		return gets;
 	}
 	public fetch = this.get;
 	public has = (name: string) => has(this.all, name);

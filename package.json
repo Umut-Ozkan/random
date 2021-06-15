@@ -1,6 +1,6 @@
-{ 
+{
 	"name": "astroide",
-	"version": "0.6.2",
+	"version": "0.6.4",
 	"description": "Easy, simple, fast, quick Database Manager",
 	"main": "dist",
 	"license": "MIT",
@@ -21,14 +21,14 @@
 	},
 	"dependencies": {
 		"@types/lodash": "^4.14.170",
-		"@types/node": "^15.3.0",
+		"@types/node": "^15.12.2",
 		"lodash": "^4.17.21",
 		"rimraf": "^3.0.2",
 		"typescript": "^4.2.4",
-		"@typescript-eslint/eslint-plugin": "^4.24.0",
-		"@typescript-eslint/parser": "^4.24.0",
-		"eslint": "^7.26.0",
-		"prettier": "^2.3.0"
+		"@typescript-eslint/eslint-plugin": "^4.27.0",
+		"@typescript-eslint/parser": "^4.27.0",
+		"eslint": "^7.28.0",
+		"prettier": "^2.3.1"
 	},
 	"keywords": [
 		"easy",
