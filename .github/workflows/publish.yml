@@ -25,6 +25,8 @@ jobs:
       - name: Get Version
         uses: culshaw/read-package-node-version-actions@v1
         id: package-node-version
+      - name: Show node version number
+        run: echo "Version is ${{ steps.package-node-version.outputs.version }}"
       - name: Create Release
         uses: actions/create-release@v1
         env:
