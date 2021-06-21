@@ -2,11 +2,6 @@ import { writeFileSync, readFileSync, existsSync } from "fs";
 import { set, get, has, unset } from "lodash";
 
 class Database {
-	constructor() {
-		if (!existsSync(`database.astroide`)) {
-			writeFileSync("database.astroide", "{}");
-		}
-	}
 	public all() {
 		const file = readFileSync(`./database.astroide`, "utf-8");
 		const data = JSON.parse(file);

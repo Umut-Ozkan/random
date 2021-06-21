@@ -14,7 +14,6 @@
 	},
 	"typings": "dist",
 	"scripts": {
-		"test": "node dist",
 		"build": "rimraf dist && tsc && node dist"
 	},
 	"dependencies": {
@@ -22,7 +21,7 @@
 		"@types/node": "^15.12.2",
 		"lodash": "^4.17.21",
 		"rimraf": "^3.0.2",
-		"typescript": "^4.3.2"
+		"typescript": "^4.2.4"
 	},
 	"keywords": [
 		"easy",

@@ -4,8 +4,4 @@ src
 .npmignore
 database.astroide
 package-lock.json
-shrinkwrap.yaml
-.travis.yml
 .github
-.eslintrc.json
-.prettierrc
