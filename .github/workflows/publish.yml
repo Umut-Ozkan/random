@@ -11,11 +11,6 @@ jobs:
     environment:
       name: release
     steps:
-      - name: Download package
-        uses: actions/download-artifact@v2
-        with:
-            name: release_id
-      - run: echo "release_id=$(cat release.txt)" >> $GITHUB_ENV
       - name: Publish release
         uses: actions/github-script@v3
         with:
@@ -28,7 +23,6 @@ jobs:
               draft: false
             })
   publish-npm:
-    needs: release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -45,7 +39,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   publish-gpr:
-    needs: release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
