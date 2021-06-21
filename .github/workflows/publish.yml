@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get Version
-        uses: culshaw/read-package-node-version-actions@v2
+        uses: culshaw/read-package-node-version-actions@v1
         with: 
           path: "./package.json"
         id: package-node-version
