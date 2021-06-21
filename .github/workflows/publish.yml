@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Get Version
         uses: culshaw/read-package-node-version-actions@v1
+        with: 
+          path: "./"
         id: package-node-version
       - name: Create Release
         uses: actions/create-release@v1
