@@ -1,77 +1,29 @@
-name: Publish a release
-
+name: Publish
 on: workflow_dispatch
 
-env:
-  NODE_VERSION: 12
-
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    environment:
-      name: build
-      url: ${{ steps.create_release.outputs.html_url }}
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Install
+        run: npm i    
+      
+      - name: Publish NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      
       - name: Create Release
-        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          draft: true
+          draft: false
           prerelease: false
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - run: npm i
-      - run: echo "tag=${GITHUB_REF##*/v}" >> $GITHUB_ENV
-      - run: echo ${{ steps.create_release.outputs.id }} >> release.txt
-
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: release
-    steps:
-      - run: echo "release_id=$(cat release.txt)" >> $GITHUB_ENV
-      - name: Publish release
-        uses: actions/github-script@v3
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.repos.updateRelease({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              release_id: process.env.release_id,
-              draft: false
-            })
-  publish-npm:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          registry-url: https://registry.npmjs.org/
-      - run: npm publish $(ls *.tgz) --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-  publish-gpr:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          registry-url: https://npm.pkg.github.com/
-          scope: "@aaronpowell"
-      - run: echo "registry=https://npm.pkg.github.com/@aaronpowell" >> .npmrc
-      - run: npm publish $(ls *.tgz) --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
