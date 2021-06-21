@@ -21,10 +21,13 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Create Release
-      - uses: culshaw/read-package-node-version-actions@v2
+      - name: Get Version
+        uses: culshaw/read-package-node-version-actions@v2
+        with: 
+          path: "./package.json"
         id: package-node-version
-      - uses: actions/create-release@v1
+      - name: Create Release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
