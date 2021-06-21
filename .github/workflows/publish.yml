@@ -16,7 +16,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            github.repos.updateRelease({
+            github.repos.createRelease({
               owner: context.repo.owner,
               repo: context.repo.repo,
               release_id: process.env.release_id,
@@ -26,32 +26,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Download package
-        uses: actions/download-artifact@v2
-        with:
-            name: package
       - uses: actions/setup-node@v1
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 14
           registry-url: https://registry.npmjs.org/
-      - run: npm publish $(ls *.tgz) --access public
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-gpr:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Download package
-        uses: actions/download-artifact@v2
-        with:
-          name: package
       - uses: actions/setup-node@v1
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 14
           registry-url: https://npm.pkg.github.com/
-          scope: "@aaronpowell"
-      - run: echo "registry=https://npm.pkg.github.com/@aaronpowell" >> .npmrc
-      - run: npm publish $(ls *.tgz) --access public
+          scope: "@astroidejs"
+      - run: echo "registry=https://npm.pkg.github.com/@astroidejs" >> .npmrc
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
