@@ -27,18 +27,8 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: npm i
-      - name: Upload
-        uses: actions/upload-artifact@v2
-        with:
-            name: package
-            path: "*.tgz"
       - run: echo "tag=${GITHUB_REF##*/v}" >> $GITHUB_ENV
       - run: echo ${{ steps.create_release.outputs.id }} >> release.txt
-      - name: Upload
-        uses: actions/upload-artifact@v2
-        with:
-            name: release_id
-            path: react-static-web-apps-auth/release.txt
 
   release:
     needs: build
@@ -46,10 +36,6 @@ jobs:
     environment:
       name: release
     steps:
-      - name: Download package
-        uses: actions/download-artifact@v2
-        with:
-            name: release_id
       - run: echo "release_id=$(cat release.txt)" >> $GITHUB_ENV
       - name: Publish release
         uses: actions/github-script@v3
@@ -67,10 +53,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Download package
-        uses: actions/download-artifact@v2
-        with:
-            name: package
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -84,10 +66,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Download package
-        uses: actions/download-artifact@v2
-        with:
-          name: package
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODE_VERSION }}
