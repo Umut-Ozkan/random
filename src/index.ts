@@ -2,7 +2,7 @@ import { writeFileSync, readFileSync } from "fs";
 import { set, get, has, unset } from "lodash";
 
 class Database {
-	public filname = `./database.astroide`
+	private filname = `database.json`
 	public all() {
 		const file = readFileSync(this.filname, "utf-8");
 		const data = JSON.parse(file);
