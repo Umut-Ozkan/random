@@ -5,3 +5,5 @@ src
 database.astroide
 package-lock.json
 .github
+README.md
+tsconfig.json
