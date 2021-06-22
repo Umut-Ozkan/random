@@ -1,7 +1,7 @@
 name: Build And Publish
 on: workflow_dispatch
 jobs:
-    test:
+    build_and_publish:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
