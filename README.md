@@ -58,25 +58,7 @@ db.push("my.cool.database.array", "str1"); // => [2, null, 3, "str1"]
 db.push("my.cool.database.array", {}); // => [2, null, 3, "str1", {}]
 ```
 
-[Pop specified data](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
-
-```js
-db.pop("my.cool.database.array"); // => [2, null, 3, "str1"]
-```
-
-[Shift specified data](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
-
-```js
-db.shift("my.cool.database.array"); // => [null, 3, "str1"]
-```
-
-[Unshift specified data](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
-
-```js
-db.unshift("my.cool.database.array", 5); // => [5, null, 3, "str1"]
-```
-
-[Deleting a value in the database(requires async/await)](https://lodash.com/docs/4.17.15#unset)
+[Deleting a value in the database](https://lodash.com/docs/4.17.15#unset)
 
 ```js
 db.delete("my.bad.database"); // => true
