@@ -12,7 +12,7 @@
 	"repository": {
 		"url": "git://github.com/astroidejs/astroide.git"
 	},
-	"typings": "dist",
+	"typings": "dist/index.d.ts",
 	"scripts": {
 		"build": "rimraf dist && tsc && node dist"
 	},
