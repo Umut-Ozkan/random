@@ -13,12 +13,9 @@
 		"url": "git://github.com/astroidejs/astroide.git"
 	},
 	"typings": "dist/index.d.ts",
-	"scripts": {
-		"build": "rimraf dist && tsc && node dist"
-	},
 	"dependencies": {
-		"lodash": "^4.17.21",
-		"rimraf": "^3.0.2"
+		"@types/lodash": "^4.14.171",
+		"lodash": "^4.17.21"
 	},
 	"keywords": [
 		"easy",
