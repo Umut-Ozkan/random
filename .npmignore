@@ -1,9 +1,6 @@
+.github
 node_modules
-src
 .gitignore
 .npmignore
-database.astroide
-package-lock.json
-.github
+CODE_OF_CONDUCT.md
 README.md
-tsconfig.json
